@@ -1,0 +1,88 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        label {
+            margin-left: 20px;
+        }
+        
+        h3 {
+            margin-left: 20px;
+        }
+        
+        .pro {
+            background-image: url("static/232.jpg");
+        }
+        
+        .a {
+            margin-left: 550px;
+        }
+        .color {
+            color: rgb(255, 0, 0)
+        }
+    </style>
+</head>
+
+<body>
+    <h3 style="text-align: center; color: grey;">STUDENT PROFILE</h3>
+    <h3 style="color: rgb(218, 137, 137);">PERSONAL DETAILS</h3>
+    <form method="POST" action="profile">{% csrf_token %}
+        <div class="pro">
+            <table>
+                <thead>
+                    <label class="color"> ID :</label><br>
+                    <label class="color">STUDENT ID :</label><br>
+                    <label style="color: rgb(255, 0, 0);">ADMISSION NUMBER :</label><br>
+                    <label style="color: rgb(255, 0, 0);">NAME :</label><br>
+                    <label style="color: rgb(255, 0, 0);">ADMISSION DATE :</label><br>
+                    <label style="color: rgb(255, 0, 0);">CLASS & DIVISION :</label><br>
+                    <label style="color: rgb(255, 0, 0);">GENDER :</label><br>
+                    <label style="color: rgb(255, 0, 0);">Date of Birth :</label><br>
+                    <label style="color: rgb(255, 0, 0);">AGE :</label><br>
+                    <label style="color: rgb(255, 0, 0);">NATIONALITY :</label><br>
+                    <label style="color: rgb(255, 0, 0);">RELIGION :</label><br>
+                    <label style="color: rgb(255, 0, 0);">CASTE :</label><br>
+                    <label style="color: rgb(255, 0, 0);">STATE :</label><br>
+                    <label style="color: rgb(255, 0, 0);">CATEGORY :</label><br>
+                    <label style="color: rgb(255, 0, 0);">SYLUBUS :</label><br>
+                    <label style="color: rgb(255, 0, 0);">MOTHER TONGUES :</label><br>
+                    <label style="color: rgb(255, 0, 0);">IDENTIFICATION MARKS :</label><br>
+                </thead>
+                <tbody>
+                    <tr class="data">
+                        <td style="color: rgb(255, 0, 0);">{{ student.id}}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.student_id }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.Aname }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.name }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.Adate }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.gender }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.db_birth }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.age }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.nationality }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.religion }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.cast }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.state }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.category }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.sylubus }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.tongues }}</td>
+                        <td style="color: rgb(255, 0, 0);">{{ student.id_marks }}</td>
+                        <a class="a" href="/edit/{{students.id}}">UPDATE  DETAILS</a>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            
+        </div>
+    </form>
+</body>
+
+</html>

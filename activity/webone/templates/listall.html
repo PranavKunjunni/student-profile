@@ -1,0 +1,182 @@
+{% load static %}
+<html>
+
+<head>
+    <style>
+        .data {
+            background-color: brown;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <div style=overflow-x:auto;>
+        <h2><u>PERSONAL DETAILS</u></h2>
+        <table class="table table-success table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col"> ID</th>
+                    <th scope="col">STUDENT ID</th>
+                    <th scope="col">ADMISSION NUMBER</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">ADMISSION DATE </th>
+                    <th scope="col">CLASS & DIVISION</th>
+                    <th scope="col">GENDER</th>
+                    <th scope="col">Date of Birth </th>
+                    <th scope="col">AGE</th>
+                    <th scope="col">NATIONALITY</th>
+                    <th scope="col">RELIGION</th>
+                    <th scope="col">STATE</th>
+                    <th scope="col">CASTE</th>
+                    <th scope="col">CATEGORY</th>
+                    <th scope="col">SYLUBUS</th>
+                    <th scope="col">MOTHER TONGUES</th>
+                    <th scope="col">IDENTIFICATION MARKS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr class="data">
+                    <td>{{student.id}}</td>
+                    <td>{{student.student_id}}</td>
+                    <td>{{student.Aname}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.Adate}}</td>
+                    <td>{{student.division}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.db_birth}}</td>
+                    <td>{{student.age}}</td>
+                    <td>{{student.nationality}}</td>
+                    <td>{{student.religion}}</td>
+                    <td>{{student.cast}}</td>
+                    <td>{{student.state}}</td>
+                    <td>{{student.category}}</td>
+                    <td>{{student.sylubus}}</td>
+                    <td>{{student.tongues}}</td>
+                    <td>{{student.id_marks}}</td>
+                    <td><a href="/edit/{{student.id}}">edit</a><a href="delete/{{student.student_id}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <h2><u>PRANT DETAILS</u></h2>
+    <table class="table table-success table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Admission Number</th>
+                <th scope="col">Parent Name</th>
+                <th scope="col">Relation</th>
+                <th scope="col">Parent Occupation</th>
+                <th scope="col">Permanent Address</th>
+                <th scope="col">Parent Telephone Number</th>
+                <th scope="col">Guardian Name</th>
+                <th scope="col">Guardian Address</th>
+                <th scope="col">Guardian Telephone Number</th>
+                <th scope="col">Parent Mobile Number</th>
+                <th scope="col">Enter Email ID</th>
+                <th scope="col">Guardian Mobile Number</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Enter Income</th>
+                <th scope="col"> Parent ID </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Parent in parents %}
+            <tr class="data">
+                <td>{{Parent.id}}</td>
+                <td>{{Parent.Ad_Number}}</td>
+                <td>{{Parent.Parent_Name}}</td>
+                <td>{{Parent.relation}}</td>
+                <td>{{Parent.Parent_Occ}}</td>
+                <td>{{Parent.Parent_Add}}</td>
+                <td>{{Parent.tele_number}}</td>
+                <td>{{Parent.G_name}}</td>
+                <td>{{Parent.G_address}}</td>
+                <td>{{Parent.G_tele_number}}</td>
+                <td>{{Parent.Prant_Mobile_num}}</td>
+                <td>{{Parent.email}}</td>
+                <td>{{Parent.G_Mobile_num}}</td>
+                <td>{{Parent.Pincode}}</td>
+                <td>{{Parent.Income}}</td>
+                <td>{{Parent.Parent_ID}}</td>
+                <td><a href="/edit/{{Parent.id}}">edit</a><a href="delete/{{Parent.Ad_Number}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <h2><u>PUPIL</u></h2>
+    <table class="table table-success table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Register Number</th>
+                <th scope="col">Admission Date</th>
+                <th scope="col">Your Medium</th>
+                <th scope="col">Last School Studied</th>
+                <th scope="col">Last Standard </th>
+                <th scope="col">Last Medium</th>
+                <th scope="col">Last Date Of Admission</th>
+                <th scope="col">Last Date Of Leave</th>
+                <th scope="col">Transfer Certificate Date</th>
+                <th scope="col">Last Remarks</th>
+                <th scope="col">Last Marks</th>
+                <th scope="col">Last Total Mark</th>
+                <th scope="col">AGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pupil in pupils %}
+            <tr class="data">
+                <td>{{pupil.id}}</td>
+                <td>{{pupil.Rg_Number}}</td>
+                <td>{{pupil.Adate}}</td>
+                <td>{{pupil.Yumedium}}</td>
+                <td>{{pupil.Lschool}}</td>
+                <td>{{pupil.Lstandard}}</td>
+                <td>{{pupil.Lmedium}}</td>
+                <td>{{pupil.LDate_Admission}}</td>
+                <td>{{pupil.LDate_Leave}}</td>
+                <td>{{pupil.Transfer_date}}</td>
+                <td>{{pupil.Remarks}}</td>
+                <td>{{pupil.mark}}</td>
+                <td>{{pupil.total_mark}}</td>
+                <td>{{pupil.age}}</td>
+                <td><a href="/edit/{{pupil.id}}">edit</a><a href="delete/{{pupil.Rg_Number}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    ​
+</body>
+
+</html>
